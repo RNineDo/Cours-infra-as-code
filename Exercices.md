@@ -154,6 +154,7 @@ Vérifiez si ce fichier est bien pris en compte par Ansible.
 ansible --version | head -n 2
 ansible
   config file = /home/vagrant/monprojet/ansible.cfg
+```
 Spécifiez un inventaire nommé hosts.
 bash```
 nano ansible.cfg

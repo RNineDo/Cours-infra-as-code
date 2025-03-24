@@ -150,6 +150,7 @@ cd monprojet
 touch ansible.cfg
 ```
 Vérifiez si ce fichier est bien pris en compte par Ansible.
+```bash
 ansible --version | head -n 2
 ansible
   config file = /home/vagrant/monprojet/ansible.cfg

@@ -96,7 +96,7 @@ ssh-copy-id vagrant@192.168.56.40
 yes
   [ENTRER MDP]
 ```
-bash```
+```bash
 vagrant@control:~$ ansible all -i 192.168.56.20,192.168.56.30,192.168.56.40 -m ping
 192.168.56.40 | SUCCESS => {
     "ansible_facts": {

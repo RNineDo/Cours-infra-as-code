@@ -62,8 +62,8 @@ Lancez une VM Rocky Linux et installez Ansible en utilisant PIP et Virtualenv.
 
 vagrant up rocky
 vagrant ssh rocky
-sudo apt update
-sudo apt install -y python3-pip python3-venv
+sudo dnf update
+sudo dnf install -y python3-pip python3-venv
 python3 -m venv ~/.venv/ansible
 source ~/.venv/ansible/bin/activate
 pip install --upgrade pip

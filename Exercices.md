@@ -69,6 +69,7 @@ source ~/.venv/ansible/bin/activate
 pip install --upgrade pip
 pip install ansible
 ansible --version
+2.15.13
 deactivate
 exit
 vagrant destroy -f rocky

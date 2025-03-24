@@ -74,4 +74,49 @@ deactivate
 exit
 vagrant destroy -f rocky
 ```
+# Authentification
+## Exercice
 
+```bash
+cd ~/formation-ansible/atelier-03
+vagrant up
+vagrant ssh control
+ssh-keygen 
+  Generating public/private rsa key pair.
+  Enter file in which to save the key (/home/vagrant/.ssh/id_rsa): [Entrée]
+  Enter passphrase (empty for no passphrase): [Entrée]
+  Enter same passphrase again: [Entrée]
+ssh-copy-id vagrant@192.168.56.20
+yes
+  [ENTRER MDP]
+ssh-copy-id vagrant@192.168.56.30
+yes
+  [ENTRER MDP]
+ssh-copy-id vagrant@192.168.56.40
+yes
+  [ENTRER MDP]
+```
+bash```
+vagrant@control:~$ ansible all -i 192.168.56.20,192.168.56.30,192.168.56.40 -m ping
+192.168.56.40 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+192.168.56.30 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+192.168.56.20 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+```

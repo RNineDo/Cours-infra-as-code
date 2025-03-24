@@ -81,42 +81,25 @@ vagrant destroy -f rocky
 cd ~/formation-ansible/atelier-03
 vagrant up
 vagrant ssh control
-ssh-keygen 
-  Generating public/private rsa key pair.
-  Enter file in which to save the key (/home/vagrant/.ssh/id_rsa): [Entrée]
-  Enter passphrase (empty for no passphrase): [Entrée]
-  Enter same passphrase again: [Entrée]
-ssh-copy-id vagrant@192.168.56.20
-yes
-  [ENTRER MDP]
-ssh-copy-id vagrant@192.168.56.30
-yes
-  [ENTRER MDP]
-ssh-copy-id vagrant@192.168.56.40
-yes
-  [ENTRER MDP]
+```
+Modifier /etc/hosts
+```bash
+sudo nano /etc/hosts
+192.168.56.10  control
+192.168.56.20  atelier01
+192.168.56.30  atelier02
+192.168.56.40  atelier03
 ```
 ```bash
-vagrant@control:~$ ansible all -i 192.168.56.20,192.168.56.30,192.168.56.40 -m ping
-192.168.56.40 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-192.168.56.30 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
-192.168.56.20 | SUCCESS => {
-    "ansible_facts": {
-        "discovered_interpreter_python": "/usr/bin/python3"
-    },
-    "changed": false,
-    "ping": "pong"
-}
+ssh-keyscan -t rsa atelier01 atelier02 atelier03 >> .ssh/known_hosts
+ssh-keygen
+ssh-copy-id vagrant@atelier01
+ssh-copy-id vagrant@atelier02
+ssh-copy-id vagrant@atelier03
+```
+```bash
+ansible all -i target01,target02,target03 -m ping
+target01 | SUCCESS
+target02 | SUCCESS
+target03 | SUCCESS
 ```

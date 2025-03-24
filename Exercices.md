@@ -2,7 +2,7 @@
 ## Installation
 ### Exercice 1
 
-    Démarrez la VM ubuntu depuis le répertoire atelier-01.
+Démarrez la VM ubuntu depuis le répertoire atelier-01.
 ```bash
 vagrant up ubuntu
 ```

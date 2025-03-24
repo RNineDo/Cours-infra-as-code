@@ -25,10 +25,12 @@ sudo apt install -y ansible
 Vérifiez si l’installation s’est bien déroulée.
 ```bash
 ansible --version
+2.10.8
 ```
 Notez la version d’Ansible.
 ```bash
 ansible --version
+2.10.8
 ```
 Déconnectez-vous et supprimez la VM.
 ```bash
@@ -39,13 +41,36 @@ vagrant destroy -f ubuntu
 
 Répétez l’exercice précédent en configurant un dépôt PPA (Personal Package Archive) pour Ansible :
 ```bash
+vagrant up ubuntu
+vagrant ssh ubuntu
+sudo apt-add-repository ppa:ansible/ansible
+[ENTER]
+sudo apt update
+apt-cache search --names-only ansible
+sudo apt install -y ansible
+ansible --version
+2.17.9
+exit
+vagrant destroy -f ubuntu
 ```
-
-$ sudo apt-add-repository ppa:ansible/ansible
-
+La version est différente.
 Notez la version fournie par ce dépôt tiers et comparez avec la version officielle de l’exercice précédent.
 ### Exercice 3
 
-```bash
-```
 Lancez une VM Rocky Linux et installez Ansible en utilisant PIP et Virtualenv.
+```bash
+
+vagrant up rocky
+vagrant ssh debian
+sudo apt update
+sudo apt install -y python3-pip python3-venv
+python3 -m venv ~/.venv/ansible
+source ~/.venv/ansible/bin/activate
+pip install --upgrade pip
+pip install ansible
+ansible --version
+deactivate
+exit
+vagrant destroy -f rocky
+```
+

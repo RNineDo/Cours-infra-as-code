@@ -217,9 +217,9 @@ vagrant destroy -f
 ## Exercice
 Installez successivement les paquets tree, git et nmap sur toutes les cibles.
 ```bash
-ansible all -m package -a "name=nmap"
-ansible all -m package -a "name=tree"
-ansible all -m package -a "name=git"
+ansible all -m package -a "name=nmap state=present"
+ansible all -m package -a "name=tree state=present"
+ansible all -m package -a "name=git state=present"
 ```
 Désinstallez successivement ces trois paquets en utilisant le paramètre supplémentaire state=absent.
 ```bash

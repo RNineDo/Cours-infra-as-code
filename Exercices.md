@@ -223,7 +223,9 @@ ansible all -m package -a "name=git state=present"
 ```
 Désinstallez successivement ces trois paquets en utilisant le paramètre supplémentaire state=absent.
 ```bash
-ansible all -m package -a "name=nmap,git,tree state=absent"
+ansible all -m package -a "name=git state=absent"
+ansible all -m package -a "name=tree state=absent"
+ansible all -m package -a "name=nmap state=absent"
 ```
 Copier le fichier /etc/fstab du Control Host vers tous les Target Hosts sous forme d’un fichier /tmp/test3.txt.
 ```bash

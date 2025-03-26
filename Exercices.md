@@ -297,7 +297,7 @@ Un premier playbook apache-debian.yml qui installe Apache sur l’hôte debian a
               <h1>Apache web server running on Debian Linux</h1>
             </body>
           </html>
----
+...
 ```
 Un deuxième playbook apache-rocky.yml qui installe Apache sur l’hôte rocky avec une page personnalisée Apache web server running on Rocky Linux.
 ### apache-rocky.yml
@@ -342,7 +342,7 @@ Un deuxième playbook apache-rocky.yml qui installe Apache sur l’hôte rocky a
         name: httpd
         state: started
         enabled: yes
----
+...
 ```
 Un troisième playbook apache-suse.yml qui installe Apache sur l’hôte suse avec une page personnalisée Apache web server running on SUSE Linux.
 ### apache-suse.yml
@@ -376,5 +376,5 @@ Un troisième playbook apache-suse.yml qui installe Apache sur l’hôte suse av
         name: apache2
         state: started
         enabled: yes
----
+...
 ```
